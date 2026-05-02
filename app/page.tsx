@@ -436,7 +436,7 @@ export default function Home() {
       setJumpSpriteSheetUrl(jumpData.imageUrl);
       setAttackSpriteSheetUrl(attackData.imageUrl);
       setIdleSpriteSheetUrl(idleData.imageUrl);
-      setCompletedSteps((prev) => new Set([...prev, 1]));
+      setCompletedSteps((prev) => new Set(Array.from(prev).concat([1])));
       setCurrentStep(2);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to generate sprite sheets");
@@ -539,7 +539,7 @@ export default function Home() {
       setJumpSpriteSheetDimensions({ width: jumpData.width, height: jumpData.height });
       setAttackSpriteSheetDimensions({ width: attackData.width, height: attackData.height });
       setIdleSpriteSheetDimensions({ width: idleData.width, height: idleData.height });
-      setCompletedSteps((prev) => new Set([...prev, 2]));
+      setCompletedSteps((prev) => new Set(Array.from(prev).concat([2])));
       setCurrentStep(3);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to remove background");
@@ -1078,12 +1078,12 @@ export default function Home() {
   };
 
   const proceedToFrameExtraction = () => {
-    setCompletedSteps((prev) => new Set([...prev, 3]));
+    setCompletedSteps((prev) => new Set(Array.from(prev).concat([3])));
     setCurrentStep(4);
   };
 
   const proceedToSandbox = () => {
-    setCompletedSteps((prev) => new Set([...prev, 4, 5]));
+    setCompletedSteps((prev) => new Set(Array.from(prev).concat([4, 5])));
     setCurrentStep(6);
   };
 
@@ -1995,7 +1995,7 @@ export default function Home() {
             <button
               className="btn btn-success"
               onClick={() => {
-                setCompletedSteps((prev) => new Set([...prev, 5]));
+                setCompletedSteps((prev) => new Set(Array.from(prev).concat([5])));
                 setCurrentStep(6);
               }}
             >
